@@ -1,26 +1,24 @@
-import logo from '../../assets/imgs/logo.svg'
-import { CartButton, GeoLocaleButton, HeaderContent } from './styles'
+import { HeaderButton, HeaderButtonContainer, HeaderContainer } from './styles'
+import coffeeLogoImg from '../../assets/imgs/logo.svg'
 
 import { MapPin, ShoppingCart } from 'phosphor-react'
 
 export function Header() {
     return (
-        <header>
-            <HeaderContent>
-                <img src={logo} alt="" />
-                <nav>
-                    <GeoLocaleButton 
-                        type="button"
-                    >
-                        <MapPin size={20} weight="fill" />
-                        <span>São Paulo, SP</span>
-                    </GeoLocaleButton>
-                    <CartButton 
-                        type="button">
-                        <ShoppingCart size={20} weight="fill" />
-                    </CartButton>
-                </nav>
-            </HeaderContent>
-        </header>
+        <HeaderContainer>
+            <div className='container'>
+                <img src={coffeeLogoImg} alt="" />
+
+                <HeaderButtonContainer>
+                    <HeaderButton variant="purple" >
+                        <MapPin size={20} weight='fill' />
+                        Jundiaí, SP
+                    </HeaderButton>
+                    <HeaderButton variant="yellow" >
+                        <ShoppingCart size={20} weight='fill' />
+                    </HeaderButton>
+                </HeaderButtonContainer>
+            </div>
+        </HeaderContainer>
     );
 }

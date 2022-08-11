@@ -1,32 +1,53 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+  }
 
-    :focus {
-        outline: none;
-        box-shadow: 0 0 0 2px ${(props) => props.theme['yellow-700']};
-    }
+  body {
+    background: ${({ theme }) => theme.colors["base-background"]};
+    color: ${({ theme }) => theme.colors["base-text"]};
+    -webkit-font-smoothing: antialiased;
+  }
 
-    body {
-        background: ${(props) => props.theme['brown-100']};
-        color: ${(props) => props.theme['brown-700']};
-        -webkit-font-smoothing: antialiased;
-    }
+  body, input, textarea, button {
+    font-family: ${({ theme }) => theme.fonts.regular};
+    font-weight: 400;
+    font-size: ${({ theme }) => theme.textSizes["text-regular-m"]}
+  }
 
-    body, input, textarea, button {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 400;
-        font-size: 1rem;
-    }
+  button {
+    cursor: pointer;
+  }
 
+  a {
+    text-decoration: none;
+  }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors["base-button"]}
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background: ${({ theme }) => theme.colors["brand-purple"]}
+  }
 `;
-/*
-font-family: 'Baloo 2', cursive;
-font-family: 'Roboto', sans-serif; 
-*/
