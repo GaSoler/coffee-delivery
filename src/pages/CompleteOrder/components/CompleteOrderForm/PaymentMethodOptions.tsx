@@ -1,5 +1,12 @@
+import { PaymentMethodInput } from "../PaymentMethodInput";
+import { PaymentMethodOptionsContainer } from "./styles";
+
 export function PaymentMethodOptions() {
     return (
-        <button>lala</button>
+        <PaymentMethodOptionsContainer>
+            <PaymentMethodInput />
+            <PaymentMethodInput />
+            <PaymentMethodInput />
+        </PaymentMethodOptionsContainer>
     );
 }

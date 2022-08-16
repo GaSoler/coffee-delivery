@@ -1,9 +1,10 @@
-import { InputContainer } from "./styles";
+import { InputHTMLAttributes } from "react";
+import { InputStyleContainer } from "./styles";
 
-export function Input() {
+type InputProps = InputHTMLAttributes<HTMLInputElement>;
+
+export function Input({...props}: InputProps ) {
     return (
-        <InputContainer>
-            <button>lala</button>
-        </InputContainer>
+        <InputStyleContainer {...props} />
     );
 }
