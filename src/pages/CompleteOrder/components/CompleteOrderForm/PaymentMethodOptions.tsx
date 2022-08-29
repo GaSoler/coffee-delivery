@@ -15,7 +15,7 @@ export function PaymentMethodOptions() {
             />
             <PaymentMethodInput 
                 icon={<Money size={16} weight="fill" />}
-                text="Cartão de débito"
+                text="Dinheiro"
             />
         </PaymentMethodOptionsContainer>
     );
