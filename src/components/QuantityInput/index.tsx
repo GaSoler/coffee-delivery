@@ -1,4 +1,5 @@
 import { Minus, Plus } from "phosphor-react";
+import { useState } from "react";
 import { IconWrapper, QuantityInputContainer } from "./styles";
 
 interface QuantityInputProps {
@@ -6,14 +7,24 @@ interface QuantityInputProps {
 }
 
 export function QuantityInput({ size = 'medium' }: QuantityInputProps) {
+    const [quantityCoffee, setQuantityCoffee] = useState(0);
+
+    function handleCoffeeIncrement() {
+        setQuantityCoffee(quantityCoffee + 1);
+    }
+
+    function handleCoffeeDecrement() {
+        if (quantityCoffee > 0) setQuantityCoffee(quantityCoffee - 1);
+    }
+
     return (
         <QuantityInputContainer size={size}>
             <IconWrapper>
-                <Minus size={14} weight="fill" />
+                <Minus size={14} weight="fill" onClick={handleCoffeeDecrement} />
             </IconWrapper>
-            <input type="number" readOnly value={1} />  
+            <input type="number" min={0} readOnly value={quantityCoffee} />  
             <IconWrapper>
-                <Plus size={14} weight="fill" />
+                <Plus size={14} weight="fill" onClick={handleCoffeeIncrement} />
             </IconWrapper>    
         </QuantityInputContainer>
     );

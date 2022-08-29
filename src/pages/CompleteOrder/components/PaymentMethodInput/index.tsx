@@ -1,11 +1,17 @@
 import { CreditCard } from "phosphor-react";
+import { ReactNode } from "react";
 import { PaymentMethodContainer } from "./styles";
 
-export function PaymentMethodInput() {
+interface PaymentMethodInputProps {
+    icon: ReactNode;
+    text: string
+}
+
+export function PaymentMethodInput({ icon, text }: PaymentMethodInputProps) {
     return (
         <PaymentMethodContainer>
-            <CreditCard size={16} />
-            Cartão de crédito
+            {icon}
+            {text}
         </PaymentMethodContainer>
     );
 }
