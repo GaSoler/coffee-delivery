@@ -4,27 +4,20 @@ import { IconWrapper, QuantityInputContainer } from "./styles";
 
 interface QuantityInputProps {
     size?: "medium" | "small";
+    quantity: number;
+    onIncrease: () => void
+    onDecrease: () => void
 }
 
-export function QuantityInput({ size = 'medium' }: QuantityInputProps) {
-    const [quantityCoffee, setQuantityCoffee] = useState(0);
-
-    function handleCoffeeIncrement() {
-        setQuantityCoffee(quantityCoffee + 1);
-    }
-
-    function handleCoffeeDecrement() {
-        if (quantityCoffee > 0) setQuantityCoffee(quantityCoffee - 1);
-    }
-
+export function QuantityInput({ onIncrease, onDecrease, quantity,size = 'medium' }: QuantityInputProps) {
     return (
         <QuantityInputContainer size={size}>
-            <IconWrapper>
-                <Minus size={14} weight="fill" onClick={handleCoffeeDecrement} />
+            <IconWrapper disabled={quantity <= 1} onClick={onDecrease} >
+                <Minus size={14} weight="fill" />
             </IconWrapper>
-            <input type="number" min={0} readOnly value={quantityCoffee} />  
-            <IconWrapper>
-                <Plus size={14} weight="fill" onClick={handleCoffeeIncrement} />
+            <input type="number" readOnly value={quantity} />  
+            <IconWrapper onClick={onIncrease} >
+                <Plus size={14} weight="fill" />
             </IconWrapper>    
         </QuantityInputContainer>
     );

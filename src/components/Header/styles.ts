@@ -75,5 +75,5 @@ export const HeaderButton = styled.button<HeaderButtonProps>`
       svg {
         color: ${({ theme }) => theme.colors[`brand-${variant}`]};
       }
-    `}
+  `}
 `;
